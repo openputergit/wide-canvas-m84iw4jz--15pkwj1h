@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#209d77',
+                        secondary: '#195685',
+                    },
+                    fontFamily: {
+                        'cyber': ['Orbitron', 'sans-serif'],
+                        'tech': ['Share Tech Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .cyber-border {
+            position: relative;
+            border: 2px solid #209d77;
+            background: rgba(32, 157, 119, 0.1);
+        }
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #209d77, #195685);
+            z-index: -1;
+            animation: borderGlow 2s ease-in-out infinite;
+        }
+        @keyframes borderGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .cyber-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #209d77, transparent);
+            animation: scanline 2s linear infinite;
+        }
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(25, 86, 133, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen text-gray-100 font-tech">
+    <!-- Navigation -->
+    <nav class="glass-effect fixed w-full z-50 py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-cyber text-2xl text-primary">CYBER<span class="text-secondary">DASH</span></h1>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-primary transition-colors"><i class="bi bi-grid-3x3-gap-fill"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="bi bi-bell-fill"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="bi bi-person-circle"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto pt-24 px-4">
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="cyber-border p-6 rounded-lg">
+                <h3 class="font-cyber mb-2">SYSTEM STATUS</h3>
+                <p class="text-4xl text-primary">98.3%</p>
+                <div class="cyber-line mt-4"></div>
+            </div>
+            <div class="cyber-border p-6 rounded-lg">
+                <h3 class="font-cyber mb-2">ACTIVE USERS</h3>
+                <p class="text-4xl text-primary">1,247</p>
+                <div class="cyber-line mt-4"></div>
+            </div>
+            <div class="cyber-border p-6 rounded-lg">
+                <h3 class="font-cyber mb-2">NETWORK LOAD</h3>
+                <p class="text-4xl text-primary">74.5%</p>
+                <div class="cyber-line mt-4"></div>
+            </div>
+            <div class="cyber-border p-6 rounded-lg">
+                <h3 class="font-cyber mb-2">SECURITY LEVEL</h3>
+                <p class="text-4xl text-primary">MAX</p>
+                <div class="cyber-line mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="cyber-border p-6 rounded-lg lg:col-span-2">
+                <h2 class="font-cyber text-xl mb-4">SYSTEM ACTIVITY</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-3 glass-effect rounded">
+                        <i class="bi bi-shield-check text-primary text-2xl"></i>
+                        <div>
+                            <p class="font-cyber">Security Scan Complete</p>
+                            <p class="text-sm text-gray-400">No threats detected</p>
+                        </div>
+                        <span class="ml-auto text-sm text-secondary">2min ago</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 glass-effect rounded">
+                        <i class="bi bi-arrow-repeat text-primary text-2xl"></i>
+                        <div>
+                            <p class="font-cyber">System Update</p>
+                            <p class="text-sm text-gray-400">Version 2.1.4 installed</p>
+                        </div>
+                        <span class="ml-auto text-sm text-secondary">15min ago</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 glass-effect rounded">
+                        <i class="bi bi-cpu text-primary text-2xl"></i>
+                        <div>
+                            <p class="font-cyber">Resource Optimization</p>
+                            <p class="text-sm text-gray-400">Performance increased by 15%</p>
+                        </div>
+                        <span class="ml-auto text-sm text-secondary">1hr ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border p-6 rounded-lg">
+                <h2 class="font-cyber text-xl mb-4">QUICK ACTIONS</h2>
+                <div class="space-y-4">
+                    <button class="w-full p-3 glass-effect rounded hover:bg-primary/20 transition-colors flex items-center gap-3">
+                        <i class="bi bi-shield-lock"></i>
+                        Security Scan
+                    </button>
+                    <button class="w-full p-3 glass-effect rounded hover:bg-primary/20 transition-colors flex items-center gap-3">
+                        <i class="bi bi-speedometer2"></i>
+                        Performance Test
+                    </button>
+                    <button class="w-full p-3 glass-effect rounded hover:bg-primary/20 transition-colors flex items-center gap-3">
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        Backup System
+                    </button>
+                    <button class="w-full p-3 glass-effect rounded hover:bg-primary/20 transition-colors flex items-center gap-3">
+                        <i class="bi bi-gear"></i>
+                        System Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Add interactive functionality
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Add pulse effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = `<i class="bi bi-arrow-repeat"></i> Processing...`;
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+
+        // Add random activity updates
+        setInterval(() => {
+            const activities = document.querySelector('.space-y-4');
+            if (Math.random() > 0.7) {
+                const newActivity = document.createElement('div');
+                newActivity.className = 'flex items-center gap-4 p-3 glass-effect rounded';
+                newActivity.style.opacity = '0';
+                newActivity.innerHTML = `
+                    <i class="bi bi-activity text-primary text-2xl"></i>
+                    <div>
+                        <p class="font-cyber">New Activity</p>
+                        <p class="text-sm text-gray-400">System check initiated</p>
+                    </div>
+                    <span class="ml-auto text-sm text-secondary">just now</span>
+                `;
+                activities.insertBefore(newActivity, activities.firstChild);
+                requestAnimationFrame(() => {
+                    newActivity.style.transition = 'opacity 0.5s';
+                    newActivity.style.opacity = '1';
+                });
+                
+                // Remove oldest activity if more than 3
+                if (activities.children.length > 3) {
+                    activities.removeChild(activities.lastChild);
+                }
+            }
+        }, 5000);
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
